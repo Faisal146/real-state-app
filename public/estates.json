@@ -1,0 +1,55 @@
+[
+  {
+    "category": "Residential",
+    "estates": [
+      {
+        "id": 1,
+        "estate_title": "a good Home",
+        "image": "src/assets/work-1.jpg",
+        "segment_name": "a ggod segment",
+        "description": "a good description",
+        "price": "555k",
+        "status": "rent",
+        "area": " 2000sq ft",
+        "location": "dhaka bangladesh",
+        "facilities": ["living Room", "swimming pool", "kitchen"]
+      },
+      {
+        "id": 2,
+        "estate_title": "a good Home",
+        "image": "src/assets/work-2.jpg",
+        "segment_name": "a ggod segment",
+        "description": "a good description",
+        "price": "555k",
+        "status": "rent",
+        "area": " 2000sq ft",
+        "location": "dhaka bangladesh",
+        "facilities": ["living Room", "swimming pool", "kitchen"]
+      },
+      {
+        "id": 3,
+        "estate_title": "a good Home",
+        "image": "src/assets/work-3.jpg",
+        "segment_name": "a ggod segment",
+        "description": "a good description",
+        "price": "555k",
+        "status": "rent",
+        "area": " 2000sq ft",
+        "location": "dhaka bangladesh",
+        "facilities": ["living Room", "swimming pool", "kitchen"]
+      },
+      {
+        "id": 4,
+        "estate_title": "a good Home",
+        "image": "src/assets/work-4.jpg",
+        "segment_name": "a ggod segment",
+        "description": "a good description",
+        "price": "555k",
+        "status": "rent",
+        "area": " 2000sq ft",
+        "location": "dhaka bangladesh",
+        "facilities": ["living Room", "swimming pool", "kitchen"]
+      }
+    ]
+  }
+]
