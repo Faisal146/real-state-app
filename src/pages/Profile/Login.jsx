@@ -18,7 +18,7 @@ console.log('location in the login   page', location)
           
           loginUser(email,password).then(
             result => {
-                console.log(result.user)
+                console.log('email user' , result.user)
 
                 navigate(location?.state ? location.state : '/')
 

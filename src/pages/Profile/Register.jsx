@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/authProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 const Register = () => {
 
-  const {createUser,GoogleSign} = useContext(AuthContext)
+  const {createUser,GoogleSign ,githubSign} = useContext(AuthContext)
  
 const [passShow , setPassShow] = useState(false)
 
@@ -41,12 +41,23 @@ const handleGoogle = () =>{
     GoogleSign().then(
      result =>{
 
-        console.log(result.user)
+       console.log(result.user)
 
         navigate(location?.state ? location.state : '/') }).catch(
        error =>console.log(error)
      )
     
+ }
+
+ const handleGithub = () => {
+    githubSign().then(
+        result =>{
+   
+           console.log(result.user)
+   
+           navigate(location?.state ? location.state : '/') }).catch(
+          error =>console.log(error)
+        )
  }
 
  
@@ -79,6 +90,9 @@ const handleGoogle = () =>{
             </form>
             <div className="provider text-center">
                 <button onClick={handleGoogle} className="btn-success btn">Continue With Google</button>
+            </div>
+            <div className="provider text-center">
+                <button onClick={handleGithub} className="btn-success btn">Continue With Github</button>
             </div>
             <div className="massage text-center">
 
