@@ -8,6 +8,8 @@ import Profile from "../pages/Profile/Profile";
 import UpdateProfile from "../pages/Profile/UpdateProfile";
 import Error from "../pages/Error"
 import PrivateRoute from "./PrivateRoute";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/register',

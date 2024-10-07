@@ -50,7 +50,7 @@ console.log('location in the login   page', location)
               </form>
 
               <div className="massage text-center">
-                <p>Didn't Have any account <Link className="underline" to="/register">Register Now</Link></p>
+                <p>Donot Have any account ? <Link className="underline" to="/register">Register Now</Link></p>
               </div>
           </div>
       );

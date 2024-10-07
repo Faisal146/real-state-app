@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup , GithubAuthProvider } from 'firebase/auth'
+import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup , GithubAuthProvider , updateProfile } from 'firebase/auth'
 import auth from "../firebase/firebase.config";
  export const AuthContext = createContext(null);
 
@@ -16,6 +16,15 @@ import auth from "../firebase/firebase.config";
         setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    const updateProfilee = (name ,photoURL) => {
+       
+        updateProfile(auth.currentUser, { displayName: name, photoURL: photoURL  }).then(()=>{
+            console.log('profile updated successfull')
+        }).catch((error)=>{
+            console.log(error)
+        })
+        console.log(name, photoURL)
+    }
 
     const loginUser = (email, password) =>{
         setLoader(true)
@@ -31,10 +40,11 @@ import auth from "../firebase/firebase.config";
        return signInWithPopup(auth, githubprovider)
     }
 
+
     // observing auth state change
 
     useEffect(()=>{
-       const unSubscribe=  onAuthStateChanged(auth, currentUser => {
+       const unSubscribe =  onAuthStateChanged(auth, currentUser => {
             console.log('current user', currentUser);
             setUser(currentUser)
             setLoader(false)
@@ -50,7 +60,7 @@ import auth from "../firebase/firebase.config";
     }
 
 
-const authInfo = {user,loader, createUser, loginUser,GoogleSign, logOut, githubSign}
+const authInfo = {user,loader, createUser, loginUser,GoogleSign, logOut, githubSign, updateProfilee}
 
 return(
 

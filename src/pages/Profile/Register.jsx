@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/authProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 const Register = () => {
 
-  const {createUser,GoogleSign ,githubSign} = useContext(AuthContext)
+  const {createUser,GoogleSign ,githubSign , updateProfilee} = useContext(AuthContext)
  
 const [passShow , setPassShow] = useState(false)
 
@@ -16,15 +16,19 @@ const navigate = useNavigate()
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
+    const name = e.target.name.value
+    const photoURL = e.target.photo.value
     
-    console.log(email,password )
+    console.log(email,password, name, photoURL )
 
-   // create user in firebase
+   //create user in firebase
 
     createUser(email,password).then(
         result =>{
 
         console.log(result.user)
+          updateProfilee(name, photoURL)
+
 
         navigate(location?.state ? location.state : '/') }
     ).catch(
@@ -72,8 +76,7 @@ const handleGoogle = () =>{
 
                 <input className="py-2 mb-6 px-8 mt-6 rounded-lg bg-cyan-100 border-2 border-gray-400 my-2 text-xl" type="email" placeholder="Your Email Address" name="email"/> <br />
                 
-                <label htmlFor="">Profile Photo : </label> <br />
-                <input className="py-2 px-8 rounded-lg bg-cyan-100 border-2 border-gray-400 my-2  " type="file" placeholder="Profile photo" name="photo"/> <br />
+                <input className="py-2 mb-6 px-8 mt-6 rounded-lg bg-cyan-100 border-2 border-gray-400 my-2 text-xl" type="text" placeholder="Your Profile Photo URL" name="photo"/> <br />
                 
                 <div className="password">
                     <input className="py-2 px-8 rounded-lg bg-cyan-100 my-2  border-2 border-gray-400 text-xl" type={passShow ? 'text' : 'password'} placeholder="Password" name="password" /> 
