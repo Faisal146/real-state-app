@@ -2,6 +2,13 @@
 import { AuthContext } from "../../Providers/authProvider";
  import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { FaGithub, FaGoogle } from "react-icons/fa";
+
+
 const Register = () => {
 
   const {createUser,GoogleSign ,githubSign , updateProfilee} = useContext(AuthContext)
@@ -81,7 +88,7 @@ const handleGoogle = () =>{
                 <div className="password">
                     <input className="py-2 px-8 rounded-lg bg-cyan-100 my-2  border-2 border-gray-400 text-xl" type={passShow ? 'text' : 'password'} placeholder="Password" name="password" /> 
                     <span className="showbtn   -ml-10" onClick={ ()=> setPassShow(!passShow)}>
-                     {passShow ? 'hide' : 'show'}
+                     {passShow ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
                        
                     </span>
                 </div>
@@ -91,16 +98,16 @@ const handleGoogle = () =>{
 
                 
             </form>
-            <div className="provider text-center">
-                <button onClick={handleGoogle} className="btn-success btn">Continue With Google</button>
+
+            <div className="provider text-center flex gap-3 justify-center my-5">
+                <button onClick={handleGoogle} className="btn-primary btn"><FaGoogle></FaGoogle> Continue With Google</button>
+                <button onClick={handleGithub} className="btn-info btn"><FaGithub></FaGithub> Continue With Github</button>
             </div>
-            <div className="provider text-center">
-                <button onClick={handleGithub} className="btn-success btn">Continue With Github</button>
-            </div>
+           
             <div className="massage text-center">
 
-                <p>Already have an account <Link className="underline" to="/login">Log In</Link></p>
-
+                <p className="text-xl mb-9">Already have an account <Link className="underline" to="/login">Log In</Link></p>
+           
               </div>
         </div>
     );

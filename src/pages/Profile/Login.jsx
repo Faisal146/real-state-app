@@ -1,11 +1,18 @@
  import { Link, useLocation, useNavigate } from "react-router-dom";
  import { useContext, useState } from "react";
  import { AuthContext } from "../../Providers/authProvider";
+ import {  FaGithub, FaGoogle } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
+
 const Login = () => {
 
-    const {user,loginUser} = useContext(AuthContext)
+    const {user,loginUser, githubSign, GoogleSign} = useContext(AuthContext)
 
 const [passShow , setPassShow] = useState(false)
+
+
 
 
 const location = useLocation()
@@ -28,7 +35,30 @@ console.log('location in the login   page', location)
 
           console.log(user)
       }
-  
+      const handleGoogle = () =>{
+        GoogleSign().then(
+         result =>{
+    
+           console.log(result.user)
+    
+            navigate(location?.state ? location.state : '/') }).catch(
+           error =>console.log(error)
+         )
+        
+     }
+    
+     const handleGithub = () => {
+        githubSign().then(
+            result =>{
+       
+               console.log(result.user)
+       
+               navigate(location?.state ? location.state : '/') }).catch(
+              error =>console.log(error)
+            )
+     }
+    
+     
   
       return (
           <div className="text-center min-h-screen">
@@ -40,7 +70,7 @@ console.log('location in the login   page', location)
                   <div className="password">
                     <input className="py-2 px-8 rounded-lg bg-cyan-100 my-2  border-2 border-gray-400 text-xl" type={passShow ? 'text' : 'password'} placeholder="Password" name="password" /> 
                     <span className="showbtn   -ml-10" onClick={ ()=> setPassShow(!passShow)}>
-                     {passShow ? 'hide' : 'show'}
+                    {passShow ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
                        
                     </span>
                 </div> <br />
@@ -48,6 +78,11 @@ console.log('location in the login   page', location)
   
   
               </form>
+
+              <div className="provider text-center flex gap-3 justify-center my-5">
+                <button onClick={handleGoogle} className="btn-primary btn"><FaGoogle></FaGoogle> Continue With Google</button>
+                <button onClick={handleGithub} className="btn-info btn"><FaGithub></FaGithub> Continue With Github</button>
+            </div>
 
               <div className="massage text-center">
                 <p>Donot Have any account ? <Link className="underline" to="/register">Register Now</Link></p>
