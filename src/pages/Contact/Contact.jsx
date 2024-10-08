@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
     return (
         <div>
           
+ <Helmet>
+  <title>Contact Us</title>
+</Helmet>
 <div className="relative md:flex block  min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
   <div className="bg-white max-w-4xl mx-auto w-full">
     <div className="grid md:grid-cols-6 grid-cols-none h-full">

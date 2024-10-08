@@ -5,6 +5,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -110,6 +111,10 @@ console.log('location in the login   page', location)
   
       return (
           <div className="text-center min-h-screen">
+            
+ <Helmet>
+  <title>Log in</title>
+</Helmet>
               <h1 className="text-3xl mt-10">Log In. </h1>
               <p>It's great to see you back</p>
   

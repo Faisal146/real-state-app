@@ -8,6 +8,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Swal from 'sweetalert2'
+import { Helmet } from "react-helmet";
 
 
 const Register = () => {
@@ -112,6 +113,10 @@ const handleGoogle = () =>{
     
     return (
         <div className="min-h-screen" >
+            
+ <Helmet>
+  <title>Register</title>
+</Helmet>
             <h1  className="text-3xl mt-10 text-center mb-2" >Create Your New Accout</h1>
             <p className="text-xl text-center mb-5"> Sign In access all freatures</p>
 

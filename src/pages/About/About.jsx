@@ -1,8 +1,15 @@
 import aboutPic from '../../assets/about-home.png'
+import { Helmet } from 'react-helmet';
+
+
 const About = () => {
+
     return (
         <div>
  
+ <Helmet>
+  <title>My Website Title</title>
+</Helmet>
 <section className="relative pt-16">
 <div className="container mx-auto">
   <div className="flex mx-4 flex-col justify-center items-center">
