@@ -127,7 +127,7 @@ console.log('location in the login   page', location)
   
               </form>
 
-              <div className="provider text-center flex gap-3 justify-center my-5">
+              <div className="provider text-center flex flex-wrap gap-3 justify-center my-5">
                 <button onClick={handleGoogle} className="btn-primary btn"><FaGoogle></FaGoogle> Continue With Google</button>
                 <button onClick={handleGithub} className="btn-info btn"><FaGithub></FaGithub> Continue With Github</button>
             </div>

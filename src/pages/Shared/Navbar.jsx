@@ -32,10 +32,10 @@ const Navbar = () => {
 
   return (
     <div className=" bg-blue-300 ">
-      <div className="navbar max-w-6xl mx-auto py-2 ">
-        <div className="navbar-start">
+      <div className="navbar max-w-6xl mx-auto py-2 justify-between ">
+        <div className="navbar-start  md:w-1/2 w-auto">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden" style={{zIndex: 100}}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -59,8 +59,11 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="logo">
-            <h1 className="text-2xl font-bold">
-              <a href="#">Sweet Home</a>
+            <h1 className="text-2xl font-bold md:block hidden">
+              <Link to='/'>Sweet Home</Link>
+            </h1>
+            <h1 className="md:text-md  md:hidden block text-sm font-bold ">
+              <Link to='/'>Sweet <br/>Home</Link>
             </h1>
           </div>
         </div>
@@ -69,7 +72,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end md:w-1/2 w-auto">
           {user ? (
             <>
               {" "}
@@ -89,15 +92,15 @@ const Navbar = () => {
               </Link>{" "}
             </>
           ) : (
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 ">
               <li>
-                {" "}
+                
                 <NavLink to="/login" className="  btn-primary">
                   Log In
                 </NavLink>
               </li>
               <li>
-                {" "}
+                
                 <NavLink to="/register" className=" ml-1 btn-secondary ">
                   Register
                 </NavLink>

@@ -23,16 +23,20 @@ const Estates = () => {
                   {  ResidentialData ?
                          ResidentialData[0].estates.map(item => {
                             return(
-                        <div key={item.id} className="item w-80 bg-cyan-300 rounded-xl ">
+                        <div key={item.id} className="item w-80 bg-cyan-100 rounded-xl ">
                         <div className="image bg-orange-300 rounded-xl h-60 w-full" style={{background: `url(${item.image}) no-repeat center/cover`}}>
                             
                         </div>
                         <div className="des py-3 px-4">
-                            <h1 className="font-extrabold text-2xl">{item.id}</h1>
-                            <h1 className="text-xl pb-2">estate Price</h1>
+                            <h1 className="font-extrabold text-2xl mt-2 mb-4">{item.estate_title}</h1>
+                            <div className="mb-4">
+                                 <span className="text-xl pb-2 ">{item.price}</span>
+                            <span className="text-xl  bg-gray-400 px-3 ml-6 rounded-lg">{item.status}</span>
+                            </div>
+                           
                             <hr />
-                            <p className="mt-3 text-xl">location: Dhaka</p>
-                            <p className="mb-1">area: 2000sq ft</p>
+                            <p className="mt-3 text-xl">location: {item.location}</p>
+                            <p className="mb-1">area: {item.area}</p>
                             
                         </div>
                         <div className="button px-4 pb-3">

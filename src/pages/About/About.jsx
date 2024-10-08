@@ -5,8 +5,8 @@ const About = () => {
  
 <section className="relative pt-16">
 <div className="container mx-auto">
-  <div className="flex flex-col justify-center items-center">
-    <div className="w-1/2 rounded-xl mr-auto ml-auto -mt-78">
+  <div className="flex mx-4 flex-col justify-center items-center">
+    <div className="md:w-1/2 w-full  rounded-xl mr-auto ml-auto -mt-78">
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ">
         <img alt="home picture" src={aboutPic} className="w-full align-middle rounded-t-lg" />
         <blockquote className="relative p-8 mb-4">

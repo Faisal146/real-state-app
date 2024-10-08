@@ -2,13 +2,13 @@
 const Footer = () => {
     return (
         <div className="bg-black pt-6 text-white">
-            <div className="items flex items-center max-w-6xl mx-auto">
-                <div className="item flex-1  mr-3">
+            <div className="items md:flex block px-4  items-center max-w-6xl mx-auto">
+                <div className="item flex-1 my-4 text-center  mr-3">
                     <h1 className="text-3xl pb-2">Sweet Home</h1>
                     <h1 className="text-gray-400">Find the suitable and affordable home
 for your perfect Family</h1>
                 </div>
-                <div className="item underline flex-1 text-center border-l-2 border-r-2 pages">
+                <div className="item underline flex-1 text-center md:border-l-2 md:border-r-2 pages">
                     <ul>
                         <li>Home</li>
                         <li>Estates</li>
