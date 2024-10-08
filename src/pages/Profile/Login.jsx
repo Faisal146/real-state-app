@@ -4,6 +4,7 @@
  import {  FaGithub, FaGoogle } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Swal from 'sweetalert2'
 
 
 const Login = () => {
@@ -22,16 +23,63 @@ console.log('location in the login   page', location)
           e.preventDefault()
           const email = e.target.email.value
           const password = e.target.password.value
-          
-          loginUser(email,password).then(
+
+           // passworld verifications
+
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const isMinLength = password.length >= 6;
+
+    if (!hasUppercase) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Password must contain atleast one Uppercase',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+      }else if(!hasLowercase){
+        Swal.fire({
+            title: 'Error!',
+            text: 'Password must contain atleast one Lowercase',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+
+      }else if(!isMinLength){
+        Swal.fire({
+            title: 'Error!',
+            text: 'Password must be 6 charecters long',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
+
+      } else {
+        console.log('pass okey');
+
+           //login user in firebase
+
+     loginUser(email,password).then(
             result => {
                 console.log('email user' , result.user)
-
                 navigate(location?.state ? location.state : '/')
-
                
             }
-          ).catch(error => console.log(error))
+          ).catch(error => {
+            let msg;
+            if(error == 'FirebaseError: Firebase: Error (auth/invalid-credential).'){
+                msg = 'information Did not Match the record'
+            }
+            Swal.fire({
+                title: 'Error!',
+                text: msg ? msg : error,
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+          })
+
+      }
+          
+         
 
           console.log(user)
       }
@@ -66,10 +114,10 @@ console.log('location in the login   page', location)
               <p>It's great to see you back</p>
   
               <form action="#" onSubmit={handleLogIn}>
-                  <input className="py-2 px-8 mt-6 rounded-lg bg-cyan-100 border-2  border-gray-400 my-2 text-xl" type="email" name="email" placeholder="Your Email Address" /> <br />
-                  <div className="password">
-                    <input className="py-2 px-8 rounded-lg bg-cyan-100 my-2  border-2 border-gray-400 text-xl" type={passShow ? 'text' : 'password'} placeholder="Password" name="password" /> 
-                    <span className="showbtn   -ml-10" onClick={ ()=> setPassShow(!passShow)}>
+                  <input className="py-2 px-4 mt-6 rounded-lg bg-cyan-100 border-2  border-gray-400 my-2 text-xl" type="email" name="email" placeholder="Your Email Address" /> <br />
+                  <div className="password relative">
+                    <input className="py-2 px-4 rounded-lg bg-cyan-100 my-2  border-2 border-gray-400 text-xl" type={passShow ? 'text' : 'password'} placeholder="Password" name="password" /> 
+                    <span  className="showbtn absolute top-5" style={{left: 'calc(50% + 110px)'}}  onClick={ ()=> setPassShow(!passShow)}>
                     {passShow ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
                        
                     </span>
