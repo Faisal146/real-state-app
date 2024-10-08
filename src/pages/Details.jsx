@@ -1,7 +1,13 @@
-   import { useEffect, useState } from "react";
-import { Link, useParams ,useLoaderData} from "react-router-dom";
+   import { useContext, useEffect, useState } from "react";
+import { Link, useParams ,useLoaderData, useLocation, Navigate} from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { AuthContext } from "../Providers/authProvider";
 const Details = () => {
+    const{ user, loader } = useContext(AuthContext)
+
+    
+
+    const location = useLocation();
 
     const [estate, setEstate] = useState(null)
 
@@ -19,12 +25,25 @@ const Details = () => {
   // console.log(estate.image) 
 
 
+  if(loader){
+    return ( <div className="text-center py-20  ">
+        <span className="loading loading-dots loading-lg"></span>
+    </div>
+    )
+}
+if(!user){
+      return <Navigate state={location.pathname} to='/login'></Navigate>
+}
     return (
         <div >
 
+
+
+            {/* <Navigate state={location.pathname} to='/login'></Navigate> */}
+
             {
                 estate ? 
-                <div className="max-w-6xl py-10 mx-auto px-3 flex gap-8">
+                <div className="max-w-6xl py-10 mx-auto px-3 flex flex-wrap gap-8">
              
                     <div className="image mt-4 bg-pink-300 rounded-xl h-96 md:w-1/2 w-full"
                       style={{background: `url(${estate.image}) no-repeat center/cover`}}

@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
  
 const Estates = () => {
+
+    const location = useLocation();
+  //  const navigation = useNavigation()
+
+
  const [ResidentialData, setResidentialData] = useState(0);
     useEffect(()=>{
        fetch("/estates.json").then(res => res.json()).then(data => setResidentialData(data))
@@ -40,7 +47,10 @@ const Estates = () => {
                             
                         </div>
                         <div className="button px-4 pb-3">
-                            <Link  to={`/details/${item.id}`} className="btn btn-success rounded-full w-full  border-2 border-gray-500">
+                            <Link 
+                              to={`/details/${item.id}`}
+                           
+                             className="btn btn-success rounded-full w-full  border-2 border-gray-500">
                                 View Property
                             </Link>
                         </div>
