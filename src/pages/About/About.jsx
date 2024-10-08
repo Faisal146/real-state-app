@@ -8,7 +8,7 @@ const About = () => {
         <div>
  
  <Helmet>
-  <title>My Website Title</title>
+  <title>About Us</title>
 </Helmet>
 <section className="relative pt-16">
 <div className="container mx-auto">

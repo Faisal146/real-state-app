@@ -5,14 +5,16 @@ import Banner from "./Banner";
  import {AuthContext} from "../../Providers/authProvider";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-
+ 
 
 
 
 const Home = () => {
 
     const authInfo = useContext(AuthContext);
-    console.log(authInfo)
+  //  console.log(authInfo)
+
+    console.log('api key', import.meta.env.VITE_API_KEY)
     return (
         <div>
             
