@@ -2,6 +2,9 @@
 
 this a House and Property rent or sale website project 
 
+live website url - 
+https://sweet-home-react.netlify.app/
+
 -- this website made with react and firebase
 
 Freatures of this website
